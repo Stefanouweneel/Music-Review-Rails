@@ -1,0 +1,12 @@
+<h1>Add new review</h1>
+
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "text">Review</label>:
+<%= text_field 'posts', 'text' %></p>
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+
+<%= link_to 'Back', {:action => 'index'} %>

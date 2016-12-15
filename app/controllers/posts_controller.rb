@@ -16,10 +16,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-       redirect_to :action => 'index'
+      redirect_to :action => 'index'
     else
-       @posts = Post.all
-       render :action => 'new'
+      @posts = Post.all
+      render :action => 'new'
     end
   end
 
@@ -30,11 +30,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.new(post_params)
 
-    if @post.update_attributes(post_param)
-       redirect_to :action => 'show', :id => @post
+    if @post.update_attributes(post_params)
+      redirect_to :action => 'show', :id => @post
     else
-       @posts = Post.all
-       render :action => 'edit'
+      @posts = Post.all
+      render :action => 'edit'
     end
   end
 
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     redirect_to :action => 'index'
   end
 
-  def book_params
-   params.require(:posts).permit(:text, :picture)
+  def post_params
+    params.require(:posts).permit(:text, :picture)
   end
 end
