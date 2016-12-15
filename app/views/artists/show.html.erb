@@ -1,1 +1,10 @@
 <h1> <%= @artist.name.upcase %> </h1>
+
+<h2> BIOGRAPHY </h2>
+<% if @wikiscrape.blank? %>
+  <p> Couldn't find biography of <%= @artist.name %></p>
+<% else %>
+<% @wikiscrape.each do |a| %>
+  <p><%= a.css('p')[0].text unless a.css('p')[0].text.length < 100  %></p>
+<% end %>
+<% end %>
