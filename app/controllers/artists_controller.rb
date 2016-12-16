@@ -5,7 +5,6 @@ class ArtistsController < ApplicationController
   require 'net/http'
 
   def index
-    @artists = Artist.all
   end
 
   def show
@@ -30,7 +29,6 @@ class ArtistsController < ApplicationController
   end
 
   def new
-    @artist = Artist.new
   end
 
   def create

@@ -1,3 +1,13 @@
-<p>Welcome to the music review website</p>
 
-<p><%= link_to "Add new review", {:action => 'new' }%></p>
+<% if @posts.blank? %>
+  <p>There are no reviews currently</p>
+<% else %>
+  <p>These are the current reviews</p>
+  <ul>
+    <% @posts.each do |c| %>
+      <li><%= link_to c.text, {:action => 'show', :id => c.id} %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p><%= link_to "Add new review", { :action => 'new' } %></p>

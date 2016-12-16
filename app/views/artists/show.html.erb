@@ -4,7 +4,9 @@
 <% if @wikiscrape.blank? %>
   <p> Couldn't find biography of <%= @artist.name %></p>
 <% else %>
-<% @wikiscrape.each do |a| %>
-  <p><%= a.css('p')[0].text unless a.css('p')[0].text.length < 100  %></p>
+  <% @wikiscrape.each do |a| %>
+    <p><%= a.css('p')[0].text unless a.css('p')[0].text.length < 100  %></p>
+  <% end %>
 <% end %>
-<% end %>
+
+<%= render template: "posts/index" %>
