@@ -9,6 +9,7 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @posts = Post.all
 
     name = @artist.name.downcase.capitalize
 

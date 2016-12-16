@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215124707) do
+ActiveRecord::Schema.define(version: 20161216133202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20161215124707) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "artists_id"
+    t.index ["artists_id"], name: "index_posts_on_artists_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
@@ -50,5 +52,6 @@ ActiveRecord::Schema.define(version: 20161215124707) do
   end
 
   add_foreign_key "artists", "posts", column: "posts_id"
+  add_foreign_key "posts", "artists", column: "artists_id"
   add_foreign_key "posts", "users"
 end
